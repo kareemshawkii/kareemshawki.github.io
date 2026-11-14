@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kareem Shawki – QA Engineer</title>
+<meta name="description" content="Kareem Shawki, QA engineer in Cairo. Selenium and TestNG automation, API testing with Postman, and Flutter mobile QA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F8;--surface:#FFFFFF;--ink:#13202C;--muted:#566574;--line:#D5DDE5;
+  --pass:#16794C;--pass-bg:#DDF3E8;--fail:#C23B33;--fail-bg:#FBE4E2;--skip:#8A5A00;--skip-bg:#FBEFD2;
+  --term:#101A24;--term-ink:#D8E3EC;--term-pass:#5BD698;--term-dim:#7F93A5;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E161E;--surface:#16212C;--ink:#E7EEF4;--muted:#93A3B2;--line:#26343F;
+  --pass:#5BD698;--pass-bg:#173A2A;--fail:#FF8B83;--fail-bg:#40201E;--skip:#F2C25E;--skip-bg:#3B2F12;
+  --term:#0A1118;
+}}
+:root[data-theme="dark"]{
+  --bg:#0E161E;--surface:#16212C;--ink:#E7EEF4;--muted:#93A3B2;--line:#26343F;
+  --pass:#5BD698;--pass-bg:#173A2A;--fail:#FF8B83;--fail-bg:#40201E;--skip:#F2C25E;--skip-bg:#3B2F12;--term:#0A1118;
+}
+html{color-scheme:light dark;scroll-padding-top:72px;scroll-behavior:smooth}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.nav b{font:700 18px var(--display);margin-right:auto}
+.nav a{font-size:15px;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.nav button{font:500 14px var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+@media(max-width:720px){.nav a.l{display:none}}
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:44px}}
+h1{font:800 clamp(44px,7vw,84px)/.98 var(--display);letter-spacing:-.03em;margin:0 0 20px}
+.role{font:500 clamp(18px,2.2vw,22px)/1.4 var(--display);color:var(--pass);margin:0 0 18px}
+.lead{max-width:52ch;color:var(--muted);margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:500;text-decoration:none;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+.term{background:var(--term);color:var(--term-ink);border-radius:12px;font:400 14px/1.75 var(--mono);padding:0;overflow:hidden;border:1px solid var(--line);min-height:360px}
+.term .bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #243441}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#3B4C5B}
+.term .bar span{margin-left:auto;color:var(--term-dim);font-size:12px}
+.term pre{margin:0;padding:16px 18px;white-space:pre-wrap;font:inherit;min-height:300px;overflow-wrap:anywhere}
+.ok{color:var(--term-pass)}.dim{color:var(--term-dim)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--term-ink);vertical-align:-2px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(30px,4vw,44px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 36px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:860px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.card h3{font:700 20px/1.25 var(--display);margin:0 0 8px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.tag{display:inline-block;font:500 12px var(--mono);padding:3px 9px;border-radius:999px;margin-bottom:12px}
+.t-auto{background:var(--pass-bg);color:var(--pass)}
+.t-man{background:var(--skip-bg);color:var(--skip)}
+.t-dev{background:var(--fail-bg);color:var(--fail)}
+.stack{font:400 13px var(--mono);color:var(--muted);margin-top:14px}
+.card a.go{display:inline-block;margin-top:14px;font-weight:500;color:var(--ink)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:500 14px var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.skill h3{display:flex;justify-content:space-between;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{font-size:14px;border:1px solid var(--line);border-radius:6px;padding:3px 10px;background:var(--bg)}
+.time{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.time li{position:relative;padding:0 0 36px 28px}
+.time li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--pass)}
+.time h3{font:700 22px/1.25 var(--display);margin:0}
+.time .when{font:400 13px var(--mono);color:var(--muted);margin:2px 0 10px}
+.time ul{margin:0;padding-left:18px;color:var(--muted)}
+.time li li{padding:0 0 6px;position:static}.time li li::before{display:none}
+.bug{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--fail);border-radius:10px;padding:24px;font-size:15.5px}
+.bug h3{font:700 20px var(--display);margin:0 0 4px}
+.bug dl{display:grid;grid-template-columns:150px 1fr;gap:8px 18px;margin:16px 0 0}
+.bug dt{font:500 13px var(--mono);color:var(--muted)}.bug dd{margin:0}
+@media(max-width:600px){.bug dl{grid-template-columns:1fr}.bug dt{margin-top:6px}}
+.pill{font:500 12px var(--mono);background:var(--fail-bg);color:var(--fail);padding:2px 9px;border-radius:999px}
+.contact a.big{display:block;font:700 clamp(22px,4vw,38px)/1.3 var(--display);text-decoration:none;word-break:break-word}
+.contact a.big:hover{color:var(--pass)}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cursor{animation:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <b>Kareem Shawki</b>
+  <a class="l" href="#skills">Skills</a><a class="l" href="#projects">Projects</a><a class="l" href="#experience">Experience</a><a class="l" href="#process">Process</a><a href="#contact">Contact</a>
+  <button id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <h1>Kareem Shawki</h1>
+    <p class="role">QA engineer: web, API and mobile</p>
+    <p class="lead">I find the bugs before your users do. Over the past year I’ve tested a production Flutter app on Android and iOS, built Selenium and TestNG regression suites, and written bug reports developers can act on without a follow-up question.</p>
+    <div class="cta">
+      <a class="btn p" href="#projects">See my projects</a>
+      <a class="btn" href="mailto:kareemshawki28@gmail.com">Email me</a>
+    </div>
+  </div>
+  <div class="term" role="img" aria-label="A test run showing Kareem’s skills all passing">
+    <div class="bar"><i></i><i></i><i></i><span>kareem.suite</span></div>
+    <pre id="out"></pre>
+  </div>
+</div>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">What I test with, what I code in, and the methods I follow.</p>
+  <div class="grid g3">
+    <div class="card skill"><h3>Test automation</h3><p>Page Object Model suites that run on every release.</p>
+      <div class="chips"><span>Selenium WebDriver</span><span>TestNG</span><span>JUnit</span><span>Java</span><span>Python</span></div></div>
+    <div class="card skill"><h3>Manual and exploratory</h3><p>Test cases, edge cases and sessions that find what scripts miss.</p>
+      <div class="chips"><span>Functional</span><span>Regression</span><span>Integration</span><span>End-to-end</span><span>Exploratory</span><span>UAT</span></div></div>
+    <div class="card skill"><h3>API testing</h3><p>Checking requests, responses and auth before the UI exists.</p>
+      <div class="chips"><span>Postman</span><span>REST</span><span>JSON</span><span>JWT</span><span>OTP flows</span></div></div>
+    <div class="card skill"><h3>Mobile QA</h3><p>Android and iOS behaviour, push notifications and sessions.</p>
+      <div class="chips"><span>Flutter apps</span><span>Android Studio</span><span>Firebase</span><span>BLoC/Cubit</span></div></div>
+    <div class="card skill"><h3>Process and tracking</h3><p>Clear defects, agile ceremonies and traceable releases.</p>
+      <div class="chips"><span>Jira</span><span>STLC</span><span>Defect lifecycle</span><span>Agile/Scrum</span><span>ISTQB Foundation</span></div></div>
+    <div class="card skill"><h3>Developer foundation</h3><p>I read the code behind the bug, which speeds up root-cause analysis.</p>
+      <div class="chips"><span>Java</span><span>Python</span><span>C++</span><span>Dart</span><span>OOP</span><span>Git &amp; GitHub</span><span>Scikit-learn</span><span>Pandas</span></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="sub">Test work first, then the development projects that taught me how software breaks.</p>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="auto" aria-pressed="false">Automation</button>
+    <button type="button" data-f="man" aria-pressed="false">Manual QA</button>
+    <button type="button" data-f="dev" aria-pressed="false">Development</button>
+  </div>
+  <div class="grid g2" id="plist">
+    <article class="card" data-c="auto"><span class="tag t-auto">Automation</span><h3>Swag Labs test automation</h3>
+      <p>Regression suite for the Swag Labs web store, built with the Page Object Model so locators live in one place and tests stay readable. Covers login, cart and checkout, backed by manual end-to-end testing.</p>
+      <div class="stack">Selenium · TestNG · Java · POM</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card" data-c="man"><span class="tag t-man">Manual QA</span><h3>Guro99 Bank mobile app</h3>
+      <p>Designed and ran manual test cases for core banking features, including authentication, security and transaction flows. Defects were tracked in Jira through to root cause.</p>
+      <div class="stack">Manual testing · Jira · Test case design</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card" data-c="man"><span class="tag t-man">Manual QA</span><h3>El 7erafe marketplace app</h3>
+      <p>End-to-end testing of a production Flutter app on Android and iOS: real-time chat, OTP sign-in, JWT sessions, push notification routing, negotiation flow and AI moderation.</p>
+      <div class="stack">Flutter · Dart · Exploratory testing</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card" data-c="dev"><span class="tag t-dev">Development</span><h3>Movie recommendation system</h3>
+      <p>Desktop recommendation engine using collaborative filtering, with unit tests and code-coverage analysis written alongside the features.</p>
+      <div class="stack">Java · JUnit · OOP</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card" data-c="dev"><span class="tag t-dev">Development</span><h3>XML editor</h3>
+      <p>Desktop app that parses and edits XML using a tree data structure, tested against boundary cases such as malformed and deeply nested input.</p>
+      <div class="stack">C++ · Data structures</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card" data-c="dev"><span class="tag t-dev">Development</span><h3>CPU scheduler</h3>
+      <p>Implements FCFS, SJF, Round Robin and Priority scheduling, with performance benchmarks and edge-case validation.</p>
+      <div class="stack">Python · Algorithms</div><a class="go" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">View on GitHub</a></article>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="sub">Newest first.</p>
+  <ul class="time">
+    <li><h3>Mobile QA Engineer, El 7erafe Platform</h3><p class="when">Oct 2025 – Jul 2026</p><ul>
+      <li>Tested a production Flutter app end to end with manual and exploratory techniques, finding UI/UX and API integration bugs.</li>
+      <li>Validated OTP verification, JWT session handling and push notification routing on Android and iOS.</li>
+      <li>Wrote reproducible defect reports and worked with developers on authentication, real-time chat and marketplace negotiation issues.</li></ul></li>
+    <li><h3>Software Testing Intern, Innovitics Co.</h3><p class="when">Aug 2025 – Oct 2025</p><ul>
+      <li>Ran manual and automated tests on mobile and web apps, logging bugs in Jira with steps and severity.</li>
+      <li>Wrote Selenium scripts for web dashboards to shorten the regression cycle.</li>
+      <li>Joined sprint planning, stand-ups and retros, and helped the Product Owner refine user stories and acceptance criteria.</li></ul></li>
+    <li><h3>Software Testing Intern, DEPI</h3><p class="when">Nov 2024 – May 2025</p><ul>
+      <li>Automated regression suites for Swag Labs with Selenium WebDriver and TestNG.</li>
+      <li>Designed and executed manual test cases for the Guro99 Bank mobile app.</li>
+      <li>Tracked critical bugs in Jira with developers through to root cause and prevention.</li></ul></li>
+    <li><h3>Artificial Intelligence Intern, NTI</h3><p class="when">Sep 2024 – Oct 2024</p><ul>
+      <li>Used Scikit-learn and Pandas for data preprocessing, feature engineering and model evaluation.</li></ul></li>
+  </ul>
+  <div class="card" style="margin-top:8px"><h3>Education</h3><p>B.Sc. in Computer and Systems Engineering, Ain Shams University, Faculty of Engineering (2021 – 2026). Graduation project GPA: 4.00 / 4.00.</p></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <h2>How I report a bug</h2>
+  <p class="sub">A sample of the format I use, so a developer can reproduce the issue in one pass. This is an illustration, not a real defect.</p>
+  <div class="bug">
+    <h3>OTP screen accepts an expired code <span class="pill">Severity: High</span></h3>
+    <dl>
+      <dt>Environment</dt><dd>Android 14 and iOS 17, staging build, Wi-Fi</dd>
+      <dt>Steps</dt><dd>1. Request an OTP. 2. Wait until the timer reaches 0:00. 3. Enter the expired code and tap Verify.</dd>
+      <dt>Expected</dt><dd>An “Code expired” message and a prompt to resend.</dd>
+      <dt>Actual</dt><dd>The user is signed in.</dd>
+      <dt>Evidence</dt><dd>Screen recording, API response with token, device logs</dd>
+      <dt>Notes</dt><dd>Likely a server-side expiry check. Retested after the fix on both platforms.</dd>
+    </dl>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let’s work together</h2>
+  <p class="sub">Open to QA engineer roles in Egypt and remote.</p>
+  <a class="big" href="mailto:kareemshawki28@gmail.com">kareemshawki28@gmail.com</a>
+  <div class="links">
+    <a class="btn p" href="https://www.linkedin.com/in/kareemshawki" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/kareemshawkii" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Kareem Shawki. New Cairo, Egypt.</div></footer>
+
+<script>
+(function(){
+  var lines=[
+    ['$ run kareem.suite',''],
+    ['',''],
+    ['ok','Selenium + TestNG regression (POM)'],
+    ['ok','Manual and exploratory testing'],
+    ['ok','API testing with Postman'],
+    ['ok','Flutter mobile QA, Android and iOS'],
+    ['ok','Jira defect reporting'],
+    ['ok','Agile sprint collaboration'],
+    ['',''],
+    ['sum','Suites: 6 passed, 0 failed']
+  ];
+  var out=document.getElementById('out');
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function render(n){
+    var h='';
+    for(var i=0;i<n;i++){
+      var l=lines[i];
+      if(l[0]==='ok')h+='<span class="ok">PASS</span> '+esc(l[1])+'\n';
+      else if(l[0]==='sum')h+='<span class="ok">'+esc(l[1])+'</span>\n';
+      else h+=(i===0?'<span class="dim">'+esc(l[0])+'</span>':esc(l[0]))+'\n';
+    }
+    out.innerHTML=h+'<span class="cursor"></span>';
+  }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){render(lines.length)}
+  else{var n=0;(function step(){render(++n);if(n<lines.length)setTimeout(step,n===1?500:420)})()}
+
+  var btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('#plist .card');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var f=b.getAttribute('data-f');
+    cards.forEach(function(c){c.style.display=(f==='all'||c.getAttribute('data-c')===f)?'':'none'});
+  })});
+
+  var root=document.documentElement,t=document.getElementById('theme');
+  t.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
